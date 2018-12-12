@@ -1,0 +1,65 @@
+<html>
+  <head>
+	{% if title %}
+    <title>{{title}} - project</title>
+    {% else %}
+    <title>Abz-project</title>
+    {% endif %}
+  </head>
+  <body>
+    <ul>
+      {% for employee in empl %}
+      <li>
+        <strong>Имя:</strong> {{employee.name}}<br>
+        <strong>Должность:</strong> {{employee.position}}<br>
+        <strong>Размер заработной платы:</strong> {{employee.salary}}<br>
+        <strong>Дата приема на работу:</strong> {{employee.date}}<br>
+        <strong>Сотрудники: </strong>
+        <ul>
+          {% for subordinate in employee.subordinates %}
+          <li>
+            <strong>Имя:</strong> {{subordinate.name}}<br>
+            <strong>Должность:</strong> {{subordinate.position}}<br>
+            <strong>Размер заработной платы:</strong> {{subordinate.salary}}<br>
+            <strong>Дата приема на работу:</strong> {{subordinate.date}}<br>
+			<strong>Сотрудники: </strong>
+			<ul>
+			  {% for subordinate in subordinate.subordinates %}
+			  <li>
+				<strong>Имя:</strong> {{subordinate.name}}<br>
+				<strong>Должность:</strong> {{subordinate.position}}<br>
+				<strong>Размер заработной платы:</strong> {{subordinate.salary}}<br>
+				<strong>Дата приема на работу:</strong> {{subordinate.date}}<br>
+				<strong>Сотрудники: </strong>
+				<ul>
+				  {% for subordinate in subordinate.subordinates %}
+				  <li>
+					<strong>Имя:</strong> {{subordinate.name}}<br>
+					<strong>Должность:</strong> {{subordinate.position}}<br>
+					<strong>Размер заработной платы:</strong> {{subordinate.salary}}<br>
+					<strong>Дата приема на работу:</strong> {{subordinate.date}}<br>
+					<strong>Сотрудники: </strong>
+					<ul>
+					  {% for subordinate in subordinate.subordinates %}
+					  <li>
+						<strong>Имя:</strong> {{subordinate.name}}<br>
+						<strong>Должность:</strong> {{subordinate.position}}<br>
+						<strong>Размер заработной платы:</strong> {{subordinate.salary}}<br>
+						<strong>Дата приема на работу:</strong> {{subordinate.date}}<br>
+					  </li>
+					  {% endfor %}
+					</ul>    
+				  </li>
+				  {% endfor %}
+				</ul>    
+			  </li>
+			  {% endfor %}
+			</ul>    
+          </li>
+          {% endfor %}
+        </ul>    
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
